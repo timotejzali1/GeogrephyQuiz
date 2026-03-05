@@ -1,0 +1,288 @@
+/* Landing */
+.landing {
+  width: 100%;
+}
+
+.landing-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 4px 20px var(--shadow);
+}
+
+.landing-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.landing-desc {
+  color: var(--text-secondary);
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+}
+
+.landing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.landing-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.landing-row label {
+  font-weight: 500;
+  color: var(--text-primary);
+  min-width: 140px;
+}
+
+.landing-form input[type="number"] {
+  border-color: var(--accent);
+  border-width: 1.5px;
+}
+
+.landing-hint {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.landing-error {
+  color: var(--wrong);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.landing-start {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  background: var(--accent) !important;
+  color: var(--bg-primary) !important;
+  border-color: var(--accent) !important;
+}
+
+.landing-start:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  color: var(--bg-primary) !important;
+}
+
+/* Quiz */
+.quiz-screen {
+  width: 100%;
+}
+
+.quiz-progress {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.quiz-questions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.quiz-nav button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.quiz-submit {
+  background: var(--accent) !important;
+  color: var(--bg-primary) !important;
+  border-color: var(--accent) !important;
+}
+
+.quiz-submit:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  color: var(--bg-primary) !important;
+}
+
+/* Question card */
+.question-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.question-text {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.options-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.option-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  position: relative;
+}
+
+.option-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--bg-card);
+}
+
+.option-btn.selected {
+  border-color: var(--accent);
+  background: var(--bg-card);
+}
+
+.option-btn.correct {
+  border-color: var(--correct);
+}
+
+.option-btn.wrong {
+  border-color: var(--wrong);
+}
+
+.option-letter {
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 1.5em;
+}
+
+.option-btn.correct .option-letter,
+.option-btn.wrong .option-letter {
+  color: inherit;
+}
+
+.option-text {
+  flex: 1;
+}
+
+.option-feedback {
+  font-size: 1.2rem;
+  margin-left: auto;
+}
+
+.option-feedback.wrong {
+  opacity: 0.9;
+}
+
+/* Result */
+.result-screen {
+  width: 100%;
+}
+
+.result-content {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.result-content h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.result-score {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.result-message {
+  color: var(--text-secondary);
+  margin: 0 0 2rem;
+}
+
+.result-again {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  background: var(--accent) !important;
+  color: var(--bg-primary) !important;
+  border-color: var(--accent) !important;
+}
+
+.result-again:hover {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  color: var(--bg-primary) !important;
+}
+
+/* Globe – flat 2D style: blue ocean, light green continents */
+.globe-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  min-height: 200px;
+}
+
+.globe-svg-wrap {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  animation: globe-spin 10s linear infinite;
+  flex-shrink: 0;
+}
+
+.globe-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+@keyframes globe-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.globe-stage-5.globe-svg-wrap {
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.12);
+}

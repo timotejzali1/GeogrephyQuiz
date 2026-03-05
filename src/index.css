@@ -1,0 +1,220 @@
+/* Geography Quiz – theme variables */
+:root,
+[data-theme="light"] {
+  --bg-primary: #f0f4f0;
+  --bg-secondary: #e2e8e2;
+  --bg-card: #ffffff;
+  --text-primary: #1a2f1a;
+  --text-secondary: #3d5c3d;
+  --accent: #2d6a4f;
+  --accent-hover: #1b4332;
+  --correct: #2d6a4f;
+  --wrong: #6b4d57;
+  --border: #c4d4c4;
+  --shadow: rgba(45, 106, 79, 0.15);
+  --globe-land: #3d5c3d;
+  --globe-water: #74a892;
+  --input-bg: #ffffff;
+  --input-text: #1a2f1a;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0d1b12;
+  --bg-secondary: #1a2f1a;
+  --bg-card: #243829;
+  --text-primary: #e2e8e2;
+  --text-secondary: #a8c4a8;
+  --accent: #52b788;
+  --accent-hover: #74c69d;
+  --correct: #52b788;
+  --wrong: #b56576;
+  --border: #2d4a35;
+  --shadow: rgba(0, 0, 0, 0.4);
+  --globe-land: #52b788;
+  --globe-water: #1b4332;
+  --input-bg: #2d4a3a;
+  --input-text: #e2e8e2;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-width: 320px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 95%,
+      var(--bg-primary) 100%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(45, 106, 79, 0.03) 40px,
+      rgba(45, 106, 79, 0.03) 41px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(45, 106, 79, 0.03) 40px,
+      rgba(45, 106, 79, 0.03) 41px
+    );
+}
+
+[data-theme="dark"] #root {
+  background-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 95%,
+      var(--bg-primary) 100%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(82, 183, 136, 0.06) 40px,
+      rgba(82, 183, 136, 0.06) 41px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(82, 183, 136, 0.06) 40px,
+      rgba(82, 183, 136, 0.06) 41px
+    );
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+button:hover {
+  background-color: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+input[type="number"] {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  padding: 0.5em 0.6em 0.5em 0.75em;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--input-text);
+  width: 4.5rem;
+  min-width: 4.5rem;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.8;
+  margin-left: 2px;
+}
+
+[data-theme="light"] input[type="number"]::-webkit-inner-spin-button,
+[data-theme="light"] input[type="number"]::-webkit-outer-spin-button {
+  filter: none;
+}
+
+[data-theme="dark"] input[type="number"]::-webkit-inner-spin-button,
+[data-theme="dark"] input[type="number"]::-webkit-outer-spin-button {
+  filter: invert(1);
+}
+
+input[type="number"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.app-header {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 0.4em 0.8em;
+  font-size: 0.9rem;
+}
+
+.theme-toggle:hover {
+  background: var(--bg-secondary);
+}
+
+.app-content {
+  width: 100%;
+  max-width: 720px;
+  flex: 1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
