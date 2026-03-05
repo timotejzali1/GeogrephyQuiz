@@ -10,6 +10,15 @@ function shuffle(array) {
   return arr;
 }
 
+/** Shuffle options and update correctIndex so the right answer isn't always in the same position. */
+function shuffleQuestionOptions(q) {
+  const options = [...q.options];
+  const correctAnswer = options[q.correctIndex];
+  shuffle(options);
+  const newCorrectIndex = options.indexOf(correctAnswer);
+  return { ...q, options, correctIndex: newCorrectIndex };
+}
+
 export function useQuizState() {
   const [screen, setScreen] = useState('landing'); // 'landing' | 'quiz' | 'result'
   const [totalWanted, setTotalWanted] = useState(10);
@@ -23,14 +32,14 @@ export function useQuizState() {
   const startQuiz = useCallback((numQuestions, perPage = QUESTIONS_PER_PAGE_DEFAULT) => {
     const n = Math.max(MIN_QUESTIONS, Math.min(MAX_QUESTIONS, Math.floor(Number(numQuestions)) || MIN_QUESTIONS));
     const per = Math.max(1, Math.min(20, Math.floor(Number(perPage)) || QUESTIONS_PER_PAGE_DEFAULT));
-    const shuffled = shuffle(QUESTIONS).slice(0, n);
+    const selected = shuffle(QUESTIONS).slice(0, n).map(shuffleQuestionOptions);
     const pgs = [];
-    for (let i = 0; i < shuffled.length; i += per) {
-      pgs.push(shuffled.slice(i, i + per));
+    for (let i = 0; i < selected.length; i += per) {
+      pgs.push(selected.slice(i, i + per));
     }
     setTotalWanted(n);
     setQuestionsPerPage(per);
-    setSelectedQuestions(shuffled);
+    setSelectedQuestions(selected);
     setPages(pgs);
     setCurrentPageIndex(0);
     setAnswers({});
