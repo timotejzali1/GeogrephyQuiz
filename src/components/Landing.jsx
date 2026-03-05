@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Moon, Sun, Play } from 'lucide-react';
+import { Moon, Sun, Play, Layers, FileText } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { QUESTIONS_PER_PAGE_DEFAULT } from '../data/questions';
 
-export function Landing({ onStart, minQuestions, maxQuestions }) {
+export function Landing({ onStart, minQuestions, maxQuestions, onFlashcards, onNotes }) {
   const { theme, toggleTheme } = useTheme();
   const [numQuestions, setNumQuestions] = useState(10);
   const [perPage, setPerPage] = useState(QUESTIONS_PER_PAGE_DEFAULT);
@@ -82,6 +82,15 @@ export function Landing({ onStart, minQuestions, maxQuestions }) {
             <Play size={20} aria-hidden /> Začni kviz
           </motion.button>
         </form>
+
+        <div className="landing-extra">
+          <button type="button" className="landing-secondary" onClick={onFlashcards}>
+            <Layers size={20} aria-hidden /> Flash kartice
+          </button>
+          <button type="button" className="landing-secondary" onClick={onNotes}>
+            <FileText size={20} aria-hidden /> Vsi zapiski
+          </button>
+        </div>
       </div>
     </motion.div>
   );

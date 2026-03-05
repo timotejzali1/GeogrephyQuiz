@@ -20,7 +20,7 @@ function shuffleQuestionOptions(q) {
 }
 
 export function useQuizState() {
-  const [screen, setScreen] = useState('landing'); // 'landing' | 'quiz' | 'result'
+  const [screen, setScreen] = useState('landing'); // 'landing' | 'quiz' | 'result' | 'flashcards' | 'notes'
   const [totalWanted, setTotalWanted] = useState(10);
   const [questionsPerPage, setQuestionsPerPage] = useState(QUESTIONS_PER_PAGE_DEFAULT);
   const [selectedQuestions, setSelectedQuestions] = useState([]); // array of question objects
@@ -64,6 +64,14 @@ export function useQuizState() {
     setScreen('landing');
   }, []);
 
+  const goToFlashcards = useCallback(() => {
+    setScreen('flashcards');
+  }, []);
+
+  const goToNotes = useCallback(() => {
+    setScreen('notes');
+  }, []);
+
   // Score: count correct answers
   const score = selectedQuestions.reduce((acc, q) => {
     const userChoice = answers[q.id];
@@ -100,6 +108,8 @@ export function useQuizState() {
     startQuiz,
     finishQuiz,
     goToLanding,
+    goToFlashcards,
+    goToNotes,
     isLastPage,
     isFirstPage,
     score,

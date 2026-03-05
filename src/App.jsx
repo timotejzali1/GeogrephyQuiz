@@ -3,6 +3,8 @@ import { useQuizState } from './hooks/useQuizState';
 import { Landing } from './components/Landing';
 import { QuizPage } from './components/QuizPage';
 import { ResultScreen } from './components/ResultScreen';
+import { FlashcardsScreen } from './components/FlashcardsScreen';
+import { NotesScreen } from './components/NotesScreen';
 import './App.css';
 
 function AppContent() {
@@ -15,6 +17,8 @@ function AppContent() {
           onStart={quiz.startQuiz}
           minQuestions={quiz.minQuestions}
           maxQuestions={quiz.maxQuestions}
+          onFlashcards={quiz.goToFlashcards}
+          onNotes={quiz.goToNotes}
         />
       )}
       {quiz.screen === 'quiz' && (
@@ -38,6 +42,12 @@ function AppContent() {
           resultTier={quiz.resultTier}
           onPlayAgain={quiz.goToLanding}
         />
+      )}
+      {quiz.screen === 'flashcards' && (
+        <FlashcardsScreen onBack={quiz.goToLanding} />
+      )}
+      {quiz.screen === 'notes' && (
+        <NotesScreen onBack={quiz.goToLanding} />
       )}
     </div>
   );
